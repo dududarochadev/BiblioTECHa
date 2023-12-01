@@ -1,6 +1,6 @@
-using BiblioTECHa.Domain;
 using BiblioTECHa.Domain.Dtos;
 using BiblioTECHa.Domain.Models;
+using BiblioTECHa.Repositories.Interfaces;
 using BiblioTECHa.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 
@@ -8,21 +8,21 @@ namespace BiblioTECHa.Services
 {
     public class BookService : IBookService
     {
-        private readonly Context _context;
+        private readonly IBookRepository _repository;
 
-        public BookService(Context context)
+        public BookService(IBookRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public List<Book> GetAll()
         {
-            return _context.Books.ToList();
+            return _repository.GetAll();
         }
 
         public Book GetById(int id)
         {
-            var book = _context.Books.FirstOrDefault(b => b.Id == id);
+            var book = _repository.GetById(id);
 
             if (book == null)
             {
@@ -41,48 +41,37 @@ namespace BiblioTECHa.Services
                 Year = dto.Year
             };
 
-            _context.Books.Add(book);
-            _context.SaveChanges();
+            _repository.Create(book);
 
             return book;
         }
 
         public Book Update(int id, JsonPatchDocument<BookDto> patchDocument)
         {
-            var bookToUpdate = _context.Books.FirstOrDefault(b => b.Id == id);
+            var book = _repository.GetById(id);
 
-            if (bookToUpdate == null)
+            if (book == null)
             {
                 throw new Exception("ID inválido.");
             }
 
-            var bookDto = new BookDto
+            var dto = new BookDto
             {
-                Title = bookToUpdate.Title,
-                Author = bookToUpdate.Author,
-                Year = bookToUpdate.Year,
+                Title = book.Title,
+                Author = book.Author,
+                Year = book.Year,
             };
 
-            patchDocument.ApplyTo(bookDto);
+            patchDocument.ApplyTo(dto);
 
-            bookToUpdate.Title = bookDto.Title;
-            bookToUpdate.Author = bookDto.Author;
-            bookToUpdate.Year = bookDto.Year;
+            _repository.Update(book, dto);
 
-            _context.SaveChanges();
-
-            return bookToUpdate;
+            return book;
         }
 
         public void Delete(int id)
         {
-            var bookToDelete = _context.Books.FirstOrDefault(b => b.Id == id);
-
-            if (bookToDelete != null)
-            {
-                _context.Books.Remove(bookToDelete);
-                _context.SaveChanges();
-            }
+            _repository.Delete(id);
         }
     }
 }
