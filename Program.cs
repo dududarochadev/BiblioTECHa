@@ -1,4 +1,6 @@
 using BarberApi.Domain;
+using BiblioTECHa.Services;
+using BiblioTECHa.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,8 @@ builder.Services.AddDbContext<Context>(opt => opt.UseSqlServer(builder.Configura
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IBookService, BookService>();
 
 var app = builder.Build();
 

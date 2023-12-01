@@ -1,11 +1,12 @@
 using BarberApi.Domain;
 using BiblioTECHa.Domain.Dtos;
 using BiblioTECHa.Domain.Models;
+using BiblioTECHa.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 
 namespace BiblioTECHa.Services
 {
-    public class BookService
+    public class BookService : IBookService
     {
         private readonly Context _context;
 
