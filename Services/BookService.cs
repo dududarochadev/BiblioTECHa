@@ -1,4 +1,4 @@
-using BarberApi.Domain;
+using BiblioTECHa.Domain;
 using BiblioTECHa.Domain.Dtos;
 using BiblioTECHa.Domain.Models;
 using BiblioTECHa.Services.Interfaces;

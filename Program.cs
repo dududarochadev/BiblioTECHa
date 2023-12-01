@@ -1,4 +1,4 @@
-using BarberApi.Domain;
+using BiblioTECHa.Domain;
 using BiblioTECHa.Services;
 using BiblioTECHa.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;

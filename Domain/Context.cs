@@ -1,7 +1,7 @@
 using BiblioTECHa.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BarberApi.Domain
+namespace BiblioTECHa.Domain
 {
     public class Context : DbContext
     {
