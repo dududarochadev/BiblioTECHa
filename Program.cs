@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddDbContext<Context>(opt => opt.UseSqlServer(builder.Configuration["ConnectionStrings:ConnectionString"]));
 
 builder.Services.AddEndpointsApiExplorer();
