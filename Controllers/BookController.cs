@@ -1,32 +1,59 @@
+using BiblioTECHa.Domain.Dtos;
+using BiblioTECHa.Services.Interfaces;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BiblioTECHa.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class BookController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly IBookService _service;
 
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public BookController(IBookService service)
     {
-        _logger = logger;
+        _service = service;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    [HttpGet]
+    public IActionResult GetAll()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        var books = _service.GetAll();
+
+        return Ok(books);
+    }
+
+    [HttpGet]
+    [Route("{id}")]
+    public IActionResult GetById(int id)
+    {
+        var book = _service.GetById(id);
+
+        return Ok(book);
+    }
+
+    [HttpPost]
+    public IActionResult Create([FromBody] BookDto dto)
+    {
+        var book = _service.Create(dto);
+
+        return Ok(book);
+    }
+
+    [HttpPatch("{id}")]
+    public IActionResult Update(int id, [FromBody] JsonPatchDocument<BookDto> patchDocument)
+    {
+        var bookToUpdate = _service.Update(id, patchDocument);
+
+        return Ok(bookToUpdate);
+    }
+
+    [HttpDelete]
+    public IActionResult Delete([FromQuery] int id)
+    {
+        _service.Delete(id);
+
+        return Ok();
     }
 }
