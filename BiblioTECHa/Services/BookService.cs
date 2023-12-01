@@ -71,7 +71,15 @@ namespace BiblioTECHa.Services
 
         public void Delete(int id)
         {
-            _repository.Delete(id);
+
+            var book = GetById(id);
+
+            if (book == null)
+            {
+                throw new Exception("ID inválido.");
+            }
+
+            _repository.Delete(book);
         }
     }
 }

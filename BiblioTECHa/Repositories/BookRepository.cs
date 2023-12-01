@@ -43,15 +43,10 @@ namespace BiblioTECHa.Repositories
             return book;
         }
 
-        public void Delete(int id)
+        public void Delete(Book book)
         {
-            var book = GetById(id);
-
-            if (book != null)
-            {
-                _context.Books.Remove(book);
-                _context.SaveChanges();
-            }
+            _context.Books.Remove(book);
+            _context.SaveChanges();
         }
     }
 }

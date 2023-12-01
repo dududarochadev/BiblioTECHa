@@ -1,14 +1,11 @@
-﻿using BiblioTECHa.Domain.Dtos;
-using BiblioTECHa.Domain.Models;
-
-namespace BiblioTECHa.Repositories.Interfaces
+﻿namespace BiblioTECHa.Repositories.Interfaces
 {
-    public interface ICRUDRepository
+    public interface ICRUDRepository<T, TDto>
     {
-        List<Book> GetAll();
-        Book? GetById(int id);
-        Book Create(Book book);
-        Book Update(Book book, BookDto dto);
-        void Delete(int id);
+        List<T> GetAll();
+        T? GetById(int id);
+        T Create(T ent);
+        T Update(T ent, TDto dto);
+        void Delete(T ent);
     }
 }
