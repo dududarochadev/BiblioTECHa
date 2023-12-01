@@ -34,7 +34,7 @@ public class BookController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create([FromBody] BookDto dto)
+    public IActionResult Create([FromBody] CreateBookDto dto)
     {
         var book = _service.Create(dto);
 

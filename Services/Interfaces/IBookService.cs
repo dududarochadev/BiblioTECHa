@@ -8,7 +8,7 @@ namespace BiblioTECHa.Services.Interfaces
     {
         List<Book> GetAll();
         Book GetById(int id);
-        Book Create(BookDto dto);
+        Book Create(CreateBookDto dto);
         Book Update(int dto, JsonPatchDocument<BookDto> patchDocument);
         void Delete(int id);
     }

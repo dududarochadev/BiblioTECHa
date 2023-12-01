@@ -32,7 +32,7 @@ namespace BiblioTECHa.Services
             return book;
         }
 
-        public Book Create(BookDto dto)
+        public Book Create(CreateBookDto dto)
         {
             var book = new Book
             {
