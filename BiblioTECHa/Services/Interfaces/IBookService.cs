@@ -11,5 +11,6 @@ namespace BiblioTECHa.Services.Interfaces
         Book Create(CreateBookDto dto);
         Book Update(int dto, JsonPatchDocument<BookDto> patchDocument);
         void Delete(int id);
+        Task UploadBookCover(int id, IFormFile file);
     }
 }

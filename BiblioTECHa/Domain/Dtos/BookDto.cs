@@ -6,5 +6,6 @@ namespace BiblioTECHa.Domain.Dtos
         public string Title { get; set; } = default!;
         public string Author { get; set; } = default!;
         public int Year { get; set; }
+        public string? CoverFile { get; set; }
     }
 }

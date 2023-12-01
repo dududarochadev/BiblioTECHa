@@ -1,4 +1,6 @@
 using BiblioTECHa.Domain;
+using BiblioTECHa.Repositories;
+using BiblioTECHa.Repositories.Interfaces;
 using BiblioTECHa.Services;
 using BiblioTECHa.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +13,7 @@ builder.Services.AddDbContext<Context>(opt => opt.UseSqlServer(builder.Configura
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<IBookService, BookService>();
 
 var app = builder.Build();

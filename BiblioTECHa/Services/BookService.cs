@@ -2,6 +2,8 @@ using BiblioTECHa.Domain.Dtos;
 using BiblioTECHa.Domain.Models;
 using BiblioTECHa.Repositories.Interfaces;
 using BiblioTECHa.Services.Interfaces;
+using Google.Apis.Auth.OAuth2;
+using Google.Cloud.Storage.V1;
 using Microsoft.AspNetCore.JsonPatch;
 
 namespace BiblioTECHa.Services
@@ -9,10 +11,16 @@ namespace BiblioTECHa.Services
     public class BookService : IBookService
     {
         private readonly IBookRepository _repository;
+        private readonly StorageClient _storageClient;
+        private readonly string _bucketName = "bucket-bibliotecha-eduardo";
 
         public BookService(IBookRepository repository)
         {
             _repository = repository;
+
+            var fileJson = "C:\\Users\\eduar\\Downloads\\googleKey.json";
+            var credential = GoogleCredential.FromFile(fileJson);
+            _storageClient = StorageClient.Create(credential);
         }
 
         public List<Book> GetAll()
@@ -80,6 +88,37 @@ namespace BiblioTECHa.Services
             }
 
             _repository.Delete(book);
+        }
+
+        public async Task UploadBookCover(int id, IFormFile file)
+        {
+            var book = GetById(id);
+
+            string? objectName = null;
+
+            try
+            {
+                using var memoryStream = new MemoryStream();
+                await file.CopyToAsync(memoryStream);
+
+                objectName = $"book_covers/{id}_{file.FileName}";
+
+                _storageClient.UploadObject(_bucketName, objectName, file.ContentType, memoryStream);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao salvar a imagem: {ex.Message}");
+            }
+
+            var dto = new BookDto
+            {
+                Id = book.Id,
+                Title = book.Title,
+                Author = book.Author,
+                CoverFile = objectName
+            };
+
+            _repository.Update(book, dto);
         }
     }
 }
