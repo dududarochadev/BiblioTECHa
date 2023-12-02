@@ -126,6 +126,7 @@ namespace BiblioTECHa.Services
                 Id = book.Id,
                 Title = book.Title,
                 Author = book.Author,
+                Year = book.Year,
                 CoverFile = objectName
             };
 
