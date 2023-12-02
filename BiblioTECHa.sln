@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiblioTECHa", "BiblioTECHa\BiblioTECHa.csproj", "{18476C7A-6CE9-4C2B-A01E-59D290FFF878}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiblioTECHa.Tests", "BiblioTECHa.Tests\BiblioTECHa.Tests.csproj", "{C394AD22-FA7B-4597-9B90-4A29B0B61929}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiblioTECHa.Tests", "BiblioTECHa.Tests\BiblioTECHa.Tests.csproj", "{C394AD22-FA7B-4597-9B90-4A29B0B61929}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
