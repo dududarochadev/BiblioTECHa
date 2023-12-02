@@ -59,10 +59,10 @@ public class BookController : ControllerBase
 
     [HttpPost]
     [Route("{id}/upload-cover")]
-    public IActionResult UploadBookCover(int id, [FromForm] IFormFile file)
+    public async Task<IActionResult> UploadBookCover(int id, [FromForm] IFormFile file)
     {
-        var book = _service.UploadBookCover(id, file);
+        await _service.UploadBookCover(id, file);
 
-        return Ok(book);
+        return Ok();
     }
 }
