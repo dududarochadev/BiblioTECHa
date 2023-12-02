@@ -1,3 +1,4 @@
+using BiblioTECHa.Configurations;
 using BiblioTECHa.Domain;
 using BiblioTECHa.Repositories;
 using BiblioTECHa.Repositories.Interfaces;
@@ -15,6 +16,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<IBookService, BookService>();
+
+builder.Services.Configure<AppSettings>(builder.Configuration);
 
 var app = builder.Build();
 

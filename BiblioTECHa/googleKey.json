@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "woven-plane-406818",
+  "private_key_id": "26f51d97cb7fd24673ee1f95e90122ccba835f11",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCjo7Xoj2+EqhkG\n6o/Mtf9/Ylv1vUyBH2uen7yBLIOe0BW5b4wseOk6e67X+QW09h6PuQqTueNMMfGC\n1+OS+rFfKNtuuhLp1njtvZcvCZYI1VUdYEu2fjAavo5Q1/YgYFEOsfD8IUr2dHYC\nFfHutXLz5yKa5omH6pQy1snwpYydHwBMby2NNThkrouQWqluztTmR9IZuZ7jjV/u\n3p483b7EZsZTjy4j44j7DQ3OhZyAYZ9xfOjH914q/jd/A2r010pqUH32C7tIM9Hc\nwjUJvHM4B3hXKODx/Q9neWYheI/K9kob0oH+jEsmSZ/G1EVw2y5Zd8b6TwltZ2XL\njfW9rV4ZAgMBAAECggEAAyngE23qdwMe1r5kJ04BcYICSx7swrZLy1ZFO64ToVde\nhCY+7IEt6R6JA83hqVz0vEyUgsSeO1Pf2mq4EJheI3vTujFIulKWJep7aMJjryoI\nqje5Xv7TiUDT2YZDUN7r0j/oa8ds/pTDz0iDU90YKtT2G06HrCQB13XFk6xvqn3t\n/bsZx28C8WaGaoB8cNXg3jHtPAnbQOmKLmCKzgo2CwcOKdx3Ozgo66UbBAlrvU2D\nFKd9Yxd19nZOZAIqxU4Wr+sA+WY6DAH2Rvu+kFVa0Uy/KD+qvmVtnqa4RewNg2+f\n4nxt0qImtsTOJelMnvwUoYCUfYXZxThGdMBz0dY73QKBgQDgut+9D5PJuF9LuFV8\nM6GAhSb8a896joyWUcNWN+VKrn79rtnltHUnj1m4zkRsRBK5LK5VhG9ctei5DGtt\n1qnC4pej+m/Dnn/1clBBdKx4e1D/arhkv+jS7so8oVRANHYBkBlkRUhgj/J/Fs0v\n6+r1ux5bGxGMSQMd2P8ufrVldwKBgQC6aLor4xpiqzRp3X7S2VHCR+nKK17ed//1\n4UEHPsETDWY60dc1gYltYZe4LghBQ4gAtDlz1Ad9VLOHRjtKnElqB3s/VOArvrbV\njpuqbHdmTHW5LVVpZFrzg7p+B9rgw7ufNCvRvU/EamPfryEKjRSrEHdTmuCwC4e0\npWRvF8J87wKBgHVx9D/QBkJjspnV6gcQzJRoAenlRfcczGg6rsU+TPxsmT1mxcWA\nO8HC7vbgBW43XTmdGjbjEXf4MXmT/gjXKL0KwokV9pbbHLBfX4X1vbTxbXEuitNM\nYBbsaJCrF2a+g/VpI3v9oUelsuusNOuYdaCae9DNIqyX86MDpsjbu10dAoGAFKH+\n6Vir1PwKQyWHIiN3zz9Se1QtngY+SKL0Ja8mg8tZ42zSm1OJOJgyyOofc8nbxegs\n68suQQsdC/4UFgASiC/nzmzAm1byudSdGlIDLUmNRj/kUlQPVSDhhY2tBm/j1o1Z\nxE9mAuGbyGiECbzv6rdZ3eEouZOtI6ui4EEK//UCgYAmJifggLPNNyLJYaHRSvko\nprkxwScW1dx3X3jQ2gGRVTgJOJqu6LNSQoFKlCf9ify/6DGR/lUEoF6CB/YhfiAO\n3uzCNWuPwOi4eeYZcpUt5H1IfyUAM3Sv/h7bdau16d0FEB6O7AYJg6S6292a9gBg\nGvxOhgrbi3YJntzh4x1Ezw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "bibliotecha-eduardo@woven-plane-406818.iam.gserviceaccount.com",
+  "client_id": "111272760776384778167",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bibliotecha-eduardo%40woven-plane-406818.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

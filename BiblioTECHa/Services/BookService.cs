@@ -1,3 +1,4 @@
+using BiblioTECHa.Configurations;
 using BiblioTECHa.Domain.Dtos;
 using BiblioTECHa.Domain.Models;
 using BiblioTECHa.Repositories.Interfaces;
@@ -5,6 +6,7 @@ using BiblioTECHa.Services.Interfaces;
 using Google.Apis.Auth.OAuth2;
 using Google.Cloud.Storage.V1;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.Extensions.Options;
 
 namespace BiblioTECHa.Services
 {
@@ -14,12 +16,21 @@ namespace BiblioTECHa.Services
         private readonly StorageClient _storageClient;
         private readonly string _bucketName = "bucket-bibliotecha-eduardo";
 
-        public BookService(IBookRepository repository)
+        public BookService(IBookRepository repository, IOptions<AppSettings> appSettings)
         {
             _repository = repository;
 
-            var fileJson = "C:\\Users\\eduar\\Downloads\\googleKey.json";
-            var credential = GoogleCredential.FromFile(fileJson);
+            var fileName = appSettings.Value.GoogleKeyFileName;
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+
+            GoogleCredential? credential;
+
+            if (!File.Exists(filePath))
+            {
+                throw new Exception("Arquivo " + fileName + " não encontrado.");
+            }
+
+            credential = GoogleCredential.FromFile(filePath);
             _storageClient = StorageClient.Create(credential);
         }
 
